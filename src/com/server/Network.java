@@ -8,7 +8,7 @@ import java.io.*;
  * remain unchanged. NetworkServer uses SocketUtil to simplify
  * the creation of the PrintWriter and BufferedReader.
  */
-public class NetworkServer {
+public class Network {
 
 	private int port, maxConnections;
 
@@ -20,7 +20,7 @@ public class NetworkServer {
 	 * indefinitely.
 	 */
 
-	public NetworkServer(int port, int maxConnections) {
+	public Network(int port, int maxConnections) {
 		setPort(port);
 		setMaxConnections(maxConnections);
 	}
@@ -54,8 +54,8 @@ public class NetworkServer {
 	 */
 	protected void handleConnection(Socket server)
 			throws IOException{
-		BufferedReader in = SocketUtil.getReader(server);
-		PrintWriter out = SocketUtil.getWriter(server);
+		BufferedReader in = SocketUtilities.getReader(server);
+		PrintWriter out = SocketUtilities.getWriter(server);
 		System.out.println
 		("Generic Network Server: got connection from " +
 				server.getInetAddress().getHostName() + "\n" +

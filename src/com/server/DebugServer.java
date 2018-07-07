@@ -4,7 +4,7 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
-public class EchoServer extends NetworkServer {
+public class DebugServer extends Network {
 
 	protected int maxRequestLines = 50;
 	protected String serverName = "EchoServer";
@@ -19,10 +19,10 @@ public class EchoServer extends NetworkServer {
 				port = Integer.parseInt(args[0]);
 			} catch(NumberFormatException nfe) {}
 		}
-		new EchoServer(port, 0);
+		new DebugServer(port, 0);
 	}
 
-	public EchoServer(int port, int maxConnections) {
+	public DebugServer(int port, int maxConnections) {
 		super(port, maxConnections);
 		listen();
 	}
@@ -37,8 +37,8 @@ public class EchoServer extends NetworkServer {
 		System.out.println
 		(serverName + ": got connection from " +
 				server.getInetAddress().getHostName());
-		BufferedReader in = SocketUtil.getReader(server);
-		PrintWriter out = SocketUtil.getWriter(server);
+		BufferedReader in = SocketUtilities.getReader(server);
+		PrintWriter out = SocketUtilities.getWriter(server);
 		String[] inputLines = new String[maxRequestLines];
 		int i;
 		for (i=0; i<maxRequestLines; i++) {

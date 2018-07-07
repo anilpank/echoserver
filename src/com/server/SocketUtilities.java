@@ -3,7 +3,7 @@ package com.server;
 import java.net.*;
 import java.io.*;
 
-public class SocketUtil {
+public class SocketUtilities {
 	/** Make a BufferedReader to get incoming data. */
 
 	public static BufferedReader getReader(Socket s)
